@@ -8,7 +8,7 @@ import styles from './styles';
 export default class MaterialIndicator extends PureComponent {
   static defaultProps = {
     animationDuration: 2400,
-
+    colorWidth: 4,
     color: 'rgb(0, 0, 0)',
     size: 40,
   };
@@ -27,7 +27,7 @@ export default class MaterialIndicator extends PureComponent {
   }
 
   renderComponent({ index, count, progress }) {
-    let { size, color, animationDuration } = this.props;
+    let {size, color, animationDuration, colorWidth} = this.props;
 
     let frames = 60 * animationDuration / 1000;
     let easing = Easing.bezier(0.4, 0.0, 0.7, 1.0);
@@ -88,7 +88,7 @@ export default class MaterialIndicator extends PureComponent {
       width: size,
       height: size,
       borderColor: color,
-      borderWidth: size / 10,
+      borderWidth: colorWidth,
       borderRadius: size / 2,
     };
 
